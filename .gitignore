@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-syntax
-=======
 autoload
 examples
 pack
@@ -9,4 +6,3 @@ hello
 lazy-lock.json
 lazyvim.json
 *.~
->>>>>>> 0b86ff87f1f346ce8e2689bab944724bbb725cab

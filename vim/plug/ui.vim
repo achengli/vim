@@ -9,7 +9,8 @@ Plug 'Mofiqul/adwaita.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.8'}
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'Mofiqul/adwaita.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 
-Plug 'craftzdog/solarized-osaka.nvim', { 'lazy': v:false, 'priority': 1000, 'opts': {},}
-Plug 'sakibmoon/vim-colors-notepad-plus-plus'
+Plug 'craftzdog/solarized-osaka.nvim', {'lazy': v:false, 'priority': 1000, 'opts': {}}
+Plug 'doki-theme/doki-theme-vim'

@@ -1,10 +1,7 @@
 local lspconfig = require'lspconfig'
 local cap = require'cmp_nvim_lsp'.default_capabilities()
 
-lspconfig.vimls.setup{
-  capabilities = cap,
-  filetypes = 'vim',
-}
+lspconfig.vimls.setup{}
 
 lspconfig.lua_ls.setup{
   on_init = function(client)
@@ -84,31 +81,15 @@ lspconfig.clangd.setup{
   capabilities = cap
 }
 
-lspconfig.astro.setup {}
+lspconfig.r_language_server.setup{}
 
-lspconfig.rust_analyzer.setup{
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true
-      },
-    }
-  }
+lspconfig.fish_lsp.setup{
+  capabilities = cap,
+  filetypes = {
+    'fish',
+  },
 }
 
-lspconfig.jdtls.setup{}
-
-lspconfig.vhdl_ls.setup{
+require'lspconfig'.bashls.setup{
   capabilities = cap,
 }

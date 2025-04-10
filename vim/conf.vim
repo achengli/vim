@@ -1,11 +1,4 @@
-function! VHDLFormat()
-  set tabstop=4
-  set shiftwidth=4
-endfunction
+autocmd BufRead,BufNew,BufCreate *.mac silent! set filetype=maxima
+autocmd BufRead,BufNew,BufCreate *.m silent! set filetype=octave
 
-augroup FileExtensionsGroup
-  au BufRead,BufNew,BufNewFile *.mac :silent! set filetype=maxima
-  au BufRead,BufNew,BufNewFile *.m :silent! set filetype=octave
-  au BufRead,BufNew,BufNewFile *.vhd :silent! call VHDLFormat()
-augroup END
-
+hi Comment cterm=italic gui=italic

@@ -1,5 +1,5 @@
 Plug 'williamboman/mason.nvim'
-Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig' , {'tag': 'v1.4.0'}
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-emoji'

@@ -1,21 +1,18 @@
-require('solarized-osaka').setup {
+require'solarized-osaka'.setup{
   transparent = true,
   terminal_colors = true,
   styles = {
-    comments = { italic = true },
-    keywords = { italic = true },
-    functions = {},
-    variables = {},
-    sidebars = "dark",
-    floats = "dark",
+    comments = {italic = true},
+    keywords = {italic = true},
+    functions= {bold = true},
+    variables= {},
+    slidebars= 'dark',
+    floats   = 'transparent',
   },
-  sidebars = { "qf", "help" },
-  day_brightness = 0.3,
-  hide_inactive_statusline = false,
-  dim_inactive = false,
-  lualine_bold = false,
-
+  day_brightness = 1.0,
+  night_brightness = 1.0,
   on_highlights = function(hl, c)
+    local prompt = "#2d3149"
     hl.TelescopeNormal = {
       bg = c.bg_dark,
       fg = c.fg_dark,
@@ -26,15 +23,15 @@ require('solarized-osaka').setup {
     }
     hl.TelescopePromptNormal = {
       bg = c.bg_dark,
-      fg = c.bg_dark,
+      fg = c.fg_dark,
     }
     hl.TelescopePromptBorder = {
       bg = c.bg_dark,
-      fg = c.bg_dark,
+      fg = c.fg_dark,
     }
     hl.TelescopePromptTitle = {
       bg = c.bg_dark,
-      fg = c.bg_dark,
+      fg = c.fg_dark,
     }
     hl.TelescopePreviewTitle = {
       bg = c.bg_dark,
@@ -47,4 +44,4 @@ require('solarized-osaka').setup {
   end,
 }
 
--- vim.cmd("color solarized-osaka-night")
+-- vim.cmd[[color solarized-osaka]]

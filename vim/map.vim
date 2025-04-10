@@ -5,11 +5,13 @@ inoremap <C-BS> <C-w>
 " hook function which reloads floating diagnostics message 
 " when the cursor moves around diferent lines.
 function! FloatingDiagnosticsHook()
-  if exists('b:last_buffer_line') && b:last_buffer_line != line('.')
-    lua vim.diagnostic.open_float()
+  if mode() == 'n'
+    if exists('b:last_buffer_line') && b:last_buffer_line != line('.')
+      lua vim.diagnostic.open_float()
+    endif
+    let b:last_buffer_line = line('.')
   endif
-  let b:last_buffer_line = line('.')
-endfunc
+endfunction
 
 " auto-command calls FloatingDiagnosticsHook when cursor moves
 augroup DiagnosticFloat
@@ -34,6 +36,28 @@ function! Tex2Pdf()
     return
   endtry
   echom "done!"
-endfunc
+endfunction
+
+
+function! HDLComponent()
+  let cname=input('Componente: ')
+  let pmap='component ' . cname . "\n" . 'port(' ."\n"
+  let done=0
+
+  while !done
+    let s=input('signal name (";" to finish): ')
+    if s == ';'
+      let done =1
+    else
+      let stype = input('signal type: ')
+      let pmap .= '     ' . s .' : ' . stype . ';' . "\n"
+    endif
+  endwhile
+
+  let pmap.= ');' . "\n" .'end component;'
+  call append(line('.'), split(pmap, "\n"))
+endfunction
 
 nnoremap <C-l> :call Tex2Pdf()<CR>
+vnoremap f y/<c-r>+<CR>
+nnoremap <silent> ! :nohl<CR>

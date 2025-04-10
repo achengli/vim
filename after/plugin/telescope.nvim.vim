@@ -5,15 +5,6 @@ lua << EOF
 local actions = require'telescope.actions'
 require'telescope'.setup{
 defaults = {
-  layout_strategy = 'horizontal',
-  layout_config = {
-    horizontal = {
-      prompt_position = 'top',
-      width = {padding = 0},
-      height = {padding = 0},
-      preview_width = .6,
-    },
-  },
   prompt_prefix = '$ ',
   initial_mode = 'normal',
   winblend = 0.0,
