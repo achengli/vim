@@ -1,4 +1,4 @@
-autocmd BufRead,BufNew,BufCreate *.mac silent! set filetype=maxima
-autocmd BufRead,BufNew,BufCreate *.m silent! set filetype=octave
+autocmd BufNewFile,BufRead *.mac silent! set filetype=maxima
+autocmd BufNewFile,BufRead *.m silent! set filetype=octave
 
 hi Comment cterm=italic gui=italic
