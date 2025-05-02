@@ -32,3 +32,12 @@ augroup BGTRansp
   autocmd!
   autocmd! ColorScheme * call TransparentBg()
 augroup END
+
+" Modus themes
+" - modus_vivendi   : dark flavour 
+" - modus_operandi  : light flavour 
+if g:scheme_variant == 'dark'
+  color modus_vivendi
+else
+  color modus_operandi
+endif

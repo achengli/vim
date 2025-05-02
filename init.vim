@@ -1,6 +1,11 @@
 source $HOME/.config/nvim/vim/util.vim
 
-let s:gnome_theme = system('gsettings get org.gnome.desktop.interface color-scheme | grep -E "default"')
+let s:gnome_version = system('gnome-shell --version | grep -Eo "[0-9]+\.[0-9]+"')
+if str2nr(s:gnome_version) < 47
+  let s:gnome_theme = system('gsettings get org.gnome.desktop.interface gtk-theme | grep -vE dark')
+else
+  let s:gnome_theme = system('gsettings get org.gnome.desktop.interface color-scheme | grep -E "default"')
+endif
 
 for file in ['opt.vim', 'plug/init.vim', 'map.vim', 'lsp.vim', 'conf.vim']
   call util#source(file)
@@ -12,11 +17,4 @@ else
   let g:scheme_variant='light'
 endif
 
-" Modus themes
-" - modus_vivendi   : dark flavour 
-" - modus_operandi  : light flavour 
-if g:scheme_variant == 'dark'
-  color modus_vivendi
-else
-  color modus_operandi
-endif
+" Colorscheme is set in after/plugin/colorscheme.rc.vim
