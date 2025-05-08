@@ -83,13 +83,6 @@ lspconfig.clangd.setup{
 
 lspconfig.r_language_server.setup{}
 
-lspconfig.fish_lsp.setup{
-  capabilities = cap,
-  filetypes = {
-    'fish',
-  },
-}
-
 require'lspconfig'.bashls.setup{
   capabilities = cap,
 }
