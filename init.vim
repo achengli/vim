@@ -11,10 +11,9 @@ for file in ['opt.vim', 'plug/init.vim', 'map.vim', 'lsp.vim', 'conf.vim']
   call util#source(file)
 endfor
 
+" To edit the colorscheme go to after/plugin/colorscheme.rc.vim 
 if len(s:gnome_theme) == 0
   let g:scheme_variant='dark'
 else
   let g:scheme_variant='light'
 endif
-
-" Colorscheme is set in after/plugin/colorscheme.rc.vim

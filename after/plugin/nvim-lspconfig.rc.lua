@@ -5,7 +5,13 @@ lspconfig.vimls.setup{}
 
 lspconfig.lua_ls.setup{
   on_init = function(client)
-    local path = client.workspace_folders[1].name
+
+    local path = os.getenv('PWD')
+
+    if client.workspace_folders then
+      path = client.workspace_folders[1].name
+    end
+
     if vim.loop.fs_stat(path .. '/.luarc.json') or
       vim.loop.fs_stat(path .. '/.luarc.jsonc') then
       return
@@ -29,6 +35,20 @@ lspconfig.lua_ls.setup{
         callSnippet = 'Replace',
       },
     }
+  },
+  Lua = {
+    runtime = {
+      version = "LuaJIT",
+    },
+    diagnostics ={
+      globals = {"vim"},
+    },
+    workspace = {
+      library = vim.api.nvim_get_runtime_file ("", true),
+    },
+    telemetry = {
+      enable = false,
+    },
   }
 }
 
@@ -84,5 +104,9 @@ lspconfig.clangd.setup{
 lspconfig.r_language_server.setup{}
 
 require'lspconfig'.bashls.setup{
+  capabilities = cap,
+}
+
+require'lspconfig'.cssls.setup {
   capabilities = cap,
 }
