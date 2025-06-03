@@ -14,11 +14,11 @@ endfunction
 
 function! util#StrSplit(str, spl)
   " ============================ FUNCTION ==================================
-  " NAME: util#StrSplit
+  "        NAME: util#StrSplit
   " DESCRIPTION: Split a string into slices separated by a defined character.
   " The splices are stored into a ordered array.
-  " PARAMETERS: util#StrSplit (str ::string, spl ::char)
-  " RETURN: array<string>
+  "  PARAMETERS: util#StrSplit (str ::string, spl ::char)
+  "      RETURN: array<string>
   " ========================================================================
 
   let l:r = [] | let l:s = ''
