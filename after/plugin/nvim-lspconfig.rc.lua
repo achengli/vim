@@ -52,9 +52,7 @@ lspconfig.lua_ls.setup {
 }
 
 -- python
-lspconfig.pylsp.setup {
-  settings = { pylsp = { plugins = { pycodestyle = { maxLineLength = 100 }}}}
-}
+lspconfig.pyright.setup {}
 
 -- Rust 
 lspconfig.rust_analyzer.setup {
