@@ -7,4 +7,4 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'onsails/lspkind.nvim'
-
+Plug 'williamboman/mason-lspconfig.nvim'
