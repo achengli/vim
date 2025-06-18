@@ -1,8 +1,3 @@
-" Vim utils
-" -------
-" Author: Yassin Achengli - Copyright (c) 2025
-" Date: Jun 3 2025 
-
 function! util#source(path)
 	let full_path = $HOME . '/.config/nvim/vim/' . a:path
 	exec 'source ' . full_path
