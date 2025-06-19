@@ -7,7 +7,8 @@ lspconfig.vimls.setup {}
 
 -- Lua
 lspconfig.lua_ls.setup {
-
+  filetypes = {'lua'},
+  capabilities = cap,
   on_init = function(client)
 
     local path = client.workspace_folders and client.workspace_folders[1].name or os.getenv('PWD')
@@ -32,7 +33,10 @@ lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       completion = { callSnippet = 'Replace'},
-    }
+      diagnostics = {
+        disable = {"indentation_linter"},
+      },
+    },
   },
 
   Lua = {
@@ -48,7 +52,7 @@ lspconfig.lua_ls.setup {
     telemetry = {
       enable = false,
     },
-  }
+  },
 }
 
 -- python
@@ -88,7 +92,7 @@ lspconfig.clangd.setup{
 
 -- R lang
 lspconfig.r_language_server.setup{
-  capabilities = cap,
+  filetypes = {'r', 'rmd'},
 }
 
 -- bash

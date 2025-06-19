@@ -4,6 +4,6 @@ Plug 'Mofiqul/adwaita.nvim'
 
 " Telescope and dependencies
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.8'}
+Plug 'nvim-telescope/telescope.nvim' 
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
