@@ -99,3 +99,9 @@ lspconfig.r_language_server.setup{
 lspconfig.bashls.setup{
   capabilities = cap,
 }
+
+-- haskell
+lspconfig.hls.setup{
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
+
