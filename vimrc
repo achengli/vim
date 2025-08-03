@@ -24,10 +24,11 @@ else
 
   set signcolumn=no
 
-  color wolfpack
+  color 1989
 
   hi LineNr ctermbg=NONE guibg=NONE ctermfg=black
   hi Normal ctermbg=NONE guibg=NONE
+  hi NonText ctermbg=NONE guibg=NONE
 
   if &signcolumn != 'no'
     hi SignColumn ctermbg=NONE guibg=NONE
