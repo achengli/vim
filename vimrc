@@ -24,13 +24,20 @@ else
 
   set signcolumn=no
 
-  color 1989
+  color tempus_night
 
-  hi LineNr ctermbg=NONE guibg=NONE ctermfg=black
-  hi Normal ctermbg=NONE guibg=NONE
-  hi NonText ctermbg=NONE guibg=NONE
+  function! TransparentBg()
+    hi LineNr ctermbg=NONE guibg=NONE
+    hi Normal ctermbg=NONE guibg=NONE
+    hi NonText ctermbg=NONE guibg=NONE
 
-  if &signcolumn != 'no'
-    hi SignColumn ctermbg=NONE guibg=NONE
-  endif
+    if &signcolumn != 'no'
+      hi SignColumn ctermbg=NONE guibg=NONE
+    endif
+
+    hi Comment cterm=italic term=italic
+  endfunction
+
+  call TransparentBg()
+
 endif

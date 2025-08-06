@@ -1,6 +1,6 @@
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+inoremap <silent><expr> <c-o> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
@@ -8,7 +8,8 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use `<c-k>` and `<c-j>` to navigate diagnostics
+
+" Use `<c-n>` and `<c-p>` to navigate diagnostics
 nmap <silent><nowait> <c-p> <Plug>(coc-diagnostic-prev)
 nmap <silent><nowait> <c-n> <Plug>(coc-diagnostic-next)
 
