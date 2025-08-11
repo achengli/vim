@@ -65,13 +65,11 @@ function! util#LoadVimScript()
       source .auto.vim
     endif
   endif
-
 endfunction
 
 augroup AutoFile
-  au VimEnter * silent! call util#LoadVimScript()
+  au VimEnter * call util#LoadVimScript()
 augroup END
 
 " sha256 codified key
 let g:auto_hashkey = "a2897883555df9cfeacada1cce1515ead41209634ec47a525d581e27952b0632"
-
