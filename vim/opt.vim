@@ -27,3 +27,4 @@ if has('termguicolors')
   set termguicolors
 endif
 
+set shm+=I
