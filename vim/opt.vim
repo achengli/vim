@@ -26,3 +26,4 @@ let &t_SI = "\e[6 q"
 if has('termguicolors')
   set termguicolors
 endif
+
