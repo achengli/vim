@@ -54,16 +54,20 @@ function! util#LoadVimScript()
     let l:auto_password = ''
 
     for line in readfile(".auto.vim", '', 3)
-      if (len(matchstr(line, '^let g:auto_password \?= \?"[[:alnum:]#@$%!-_ ]\+" *$')) > 0)
-        let l:pass_line = matchstr(line, '^let g:auto_password \?= \?"[[:alnum:]#@$%!-_ ]\+" *$')
-        let l:auto_password = trim(util#StrSplit(l:pass_line, '=')[1])[1:len(l:pass_second)-2]
+      if (len(matchstr(line, "^let g:auto_password \\?= \\?['\"][A-Za-z0-9\\$#_\\-\\+=@%! ]\\+['\"] *$")) > 0)
+        execute line
+        break
       endif
     endfor
 
-    if sha256(l:auto_password) == g:auto_hashkey
-      echo 'Working directory: .auto.vim file was loaded'
+    if sha256(g:auto_password) == g:auto_hashkey
       source .auto.vim
     endif
+
+    if !exists('g:auto_password_silent')
+      echomsg 'startup .auto.vim file was loaded'
+    endif
+
   endif
 endfunction
 
