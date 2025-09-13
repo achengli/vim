@@ -1,6 +1,8 @@
 #!/usr/bin/bash
-# Configuration of clangd LSP for a project.
-# ----
+
+## Configuration of clangd LSP for a project.
+## ----
+## Copyright (C) Yassin Achengli 2025 
 
 print_help(){
   echo -e "clang_gen.sh usage:\n---------------"
@@ -44,6 +46,8 @@ if [ -n "$search_local_libs" ]; then
 fi
 
 # clangd.libs has a list of libraries defined line by line
+# Define your libraries in clangd.libs with
+# echo -e 'lib1\nlib2\n...' > clangd.libs
 if [ -n "$lib_list_file" ]; then
   args="$args $(cat clangd.libs | xargs)"
 fi
