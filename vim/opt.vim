@@ -28,3 +28,18 @@ if has('termguicolors')
 endif
 
 set shm+=I
+
+function! StartupLanguageTabulation(ftype)
+  if tolower(a:ftype) == 'c' 
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+  elseif tolower(a:ftype) == 'python'
+    setlocal tabstop=4
+    setlocal shiftwidth=4
+    setlocal noexpandtab
+  endif
+endfunction
+
+augroup LanguageTabulation
+  au VimEnter * call StartupLanguageTabulation(&filetype)
+augroup END

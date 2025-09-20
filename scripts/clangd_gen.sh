@@ -18,7 +18,8 @@ if ! [ -x /usr/bin/pkg-config ]; then
 fi
 
 COMPILER=gcc
-args=""
+unset args
+declare -a args=()
 
 # Evaluate
 for arg in $@; do
@@ -32,7 +33,7 @@ for arg in $@; do
     -c* | --compiler*)
       COMPILER=$(echo $arg | cut -d'=' -f2) ;;
     *)
-      args="$args $arg"
+      args[${#args[@]}]="$arg"
   esac
 done
 
@@ -40,7 +41,12 @@ echo -e "CompileFlags:\n\tAdd: [" > .clangd
 
 # Search include directories.
 if [ -n "$search_local_libs" ]; then
-  for inc_dir in $(find ./ -name include -type d); do
+  if [ -d ${args[0]} ]; then
+    pdir=${args[0]}  
+  else
+    pdir='./'
+  fi
+  for inc_dir in $(find $pdir -name include -type d); do
     echo -e "\t\t-I$inc_dir" >> .clangd
   done
 fi

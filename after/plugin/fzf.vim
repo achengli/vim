@@ -15,7 +15,7 @@ function! s:open_or_cd(item)
 endfunction
 
 function! FileBrowser()
-  let l:cmd = 'printf "" && ls -a1 --group-directories-first'
+  let l:cmd = 'printf "" && ls -a1 --group-directories-first ' . $PWD
   call fzf#run(fzf#wrap({
         \ 'source': l:cmd,
         \ 'sink': function('s:open_or_cd'),
